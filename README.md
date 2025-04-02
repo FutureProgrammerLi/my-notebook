@@ -1,36 +1,18 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+用CRA创建并跟做的Next项目,想接入免费的文本分析聊天接口,结果没找到,就先注释掉了.
+B站原地址:https://www.bilibili.com/video/BV18HX6YvEPh/?spm_id_from=333.1387.homepage.video_card.click&vd_source=9773db98830079719c6cf0c28e78bf5c  
+技术栈是Next/shadcn/tailwindcss, prisma/supabase.  
+* Next 15: api/route.ts + server action处理用户授权注册登录,笔记的增删改查;
+* shadcn + tailwindcss: 前端页面的样式编写; 
+* supabase + prisma: 数据库数据管理 + 注册邮箱认证 + 登录授权.
 
-## Getting Started
+## Takeaway
+1. 简单了解Next15中如何同时用server actions和 app/api,处理网络请求;
+2. 利用Next的中间件和supabase,实现真实邮箱校验,账号的注册和登录.
+3. 利用prisma,本地定义,并在远程生成可用的数据库tables,并利用server actions,成功向远程增删改查数据.(actions里主要是prisma提供的api)
 
-First, run the development server:
+## Regrets
+1. 当然是没接入AI进行笔记分析了.是区别于其它笔记本的一大功能我居然没找到能连的AI接口
+2. prisma+supabase的数据库组合还是不太明白.Relational和Document based(之前用的Mongo)数据库感觉前者好难理解.
+3. 做着做着有点忘记了初衷,没能很好理解编写的意图就写出来了,导致后续再写,再看甚至都不知道是为了什么.算是后续一个本项目的方向?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
