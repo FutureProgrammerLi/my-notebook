@@ -1,6 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-用CRA创建并跟做的Next项目,想接入免费的文本分析聊天接口,结果没找到,就先注释掉了.
-B站原地址:https://www.bilibili.com/video/BV18HX6YvEPh/?spm_id_from=333.1387.homepage.video_card.click&vd_source=9773db98830079719c6cf0c28e78bf5c  
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).  
+用CRA创建并跟做的Next项目,想接入免费的文本分析聊天接口,结果没找到,就先注释掉了.  
+B站原地址:https://www.bilibili.com/video/BV18HX6YvEPh/  
 技术栈是Next/shadcn/tailwindcss, prisma/supabase.  
 * Next 15: api/route.ts + server action处理用户授权注册登录,笔记的增删改查;
 * shadcn + tailwindcss: 前端页面的样式编写; 
@@ -15,4 +15,5 @@ B站原地址:https://www.bilibili.com/video/BV18HX6YvEPh/?spm_id_from=333.1387.
 1. 当然是没接入AI进行笔记分析了.是区别于其它笔记本的一大功能我居然没找到能连的AI接口
 2. prisma+supabase的数据库组合还是不太明白.Relational和Document based(之前用的Mongo)数据库感觉前者好难理解.
 3. 做着做着有点忘记了初衷,没能很好理解编写的意图就写出来了,导致后续再写,再看甚至都不知道是为了什么.算是后续一个本项目的方向?
+4. 笔记切换很慢,可能是请求到远端时的延迟较高,后续应利用缓存提高性能.
 
