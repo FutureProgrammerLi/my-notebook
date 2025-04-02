@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { ThemeProvider } from './Providers/theme-provider';
+import { Toaster } from "@/components/ui/sonner";
+import "@/styles/globals.css";
+import { Header } from "./components/Header";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "./components/AppSidebar";
+import NoteProvider from "./Providers/note-provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,11 +19,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" suppressHydrationWarning>
+      <body >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NoteProvider>
+            <SidebarProvider>
+              <AppSidebar />
+              <div className="flex min-h-screen flex-col w-full">
+                <Header />
+                <main className="flex flex-1 flex-col px-4 pt-10 xl:px-8">
+                  {children}
+                </main>
+              </div>
+            </SidebarProvider>
+            <Toaster />
+          </NoteProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
