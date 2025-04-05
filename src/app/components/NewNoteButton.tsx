@@ -13,7 +13,6 @@ type Props = {
   user: User | null;
 }
 function NewNoteButton({ user }: Props) {
-  console.log(user?.email)
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   async function handleClickNewNoteButton() {
@@ -34,7 +33,7 @@ function NewNoteButton({ user }: Props) {
   return (
     <Button
       onClick={handleClickNewNoteButton}
-      variant="secondary"
+      variant="outline"
       className="w-24"
       disabled={loading}
     >
